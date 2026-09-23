@@ -4,20 +4,34 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kidsempire_246 Admin Login</title>
 <style>
-body{font-family:Arial,sans-serif;background:#fff8fb;margin:0;display:grid;place-items:center;min-height:100vh}.box{background:#fff;padding:28px;border-radius:18px;box-shadow:0 12px 30px #0001;width:min(420px,90%)}input,button{width:100%;padding:12px;border-radius:10px;font:inherit}input{border:1px solid #ddd;margin:8px 0 14px}button{background:#f52b82;color:#fff;border:0;font-weight:800;cursor:pointer}.small{color:#667085;font-size:13px;margin-top:8px}h1{margin-top:0}
+body{font-family:Arial,sans-serif;background:#fff8fb;margin:0;display:grid;place-items:center;min-height:100vh}.box{background:#fff;padding:28px;border-radius:18px;box-shadow:0 12px 30px #0001;width:min(420px,90vw)}h1{margin-top:0}.field{display:flex;flex-direction:column;gap:8px;margin:18px 0}.input{padding:12px 14px;border:1px solid #e5e7eb;border-radius:10px;font-size:1rem}.button{display:block;width:100%;padding:12px 14px;border:none;border-radius:10px;background:linear-gradient(135deg,#f52b82,#8c6cff);color:#fff;font-weight:700;cursor:pointer}.small{margin-top:14px;color:#667085;font-size:.9rem;line-height:1.5}.error{margin-top:12px;color:#b42318;display:none;font-weight:700}
 </style>
 </head>
 <body>
 <div class="box">
-<h1>Admin Access</h1>
-<label>Password</label>
-<input id="pw" type="password" placeholder="Enter admin password">
-<button onclick="login()">Enter</button>
-<div class="small">This page is private. Use the password to access the store manager.</div>
+  <h1>Admin Access</h1>
+  <div class="field">
+    <label>Password</label>
+    <input id="pw" class="input" type="password" placeholder="Enter admin password">
+  </div>
+  <button class="button" onclick="login()">Enter</button>
+  <div id="error" class="error">Incorrect password.</div>
+  <div class="small">This page is private. Use the password to access the store manager.</div>
 </div>
 <script>
-const ADMIN_PASSWORD='kidsempire246';function login(){let val=document.getElementById('pw').value.trim();if(val===ADMIN_PASSWORD){localStorage.setItem('kidsempire_admin_ok','1');location.href='admin-panel.html';}else alert('Incorrect password')}if(localStorage.getItem('kidsempire_admin_ok')==='1'){location.href='admin-panel.html';}</script>
+const ADMIN_PASSWORD='kidsempire246';
+if(localStorage.getItem('kidsempire_admin_ok') === '1'){ location.href='admin.html'; }
+
+function login(){
+  const val = document.getElementById('pw').value.trim();
+  const error = document.getElementById('error');
+  if(val === ADMIN_PASSWORD){
+    localStorage.setItem('kidsempire_admin_ok','1');
+    location.href='admin.html';
+  } else {
+    error.style.display='block';
+  }
+}
+</script>
 </body>
 </html>
-
-
