@@ -1,0 +1,8 @@
+{
+  "products": [
+    {"id":1,"name":"Minnie Princess Dress","price":45,"category":"Kids Clothing","sizes":["4","6","8","10"],"stock":20,"photo":"👗"},
+    {"id":2,"name":"Safari Set","price":52,"category":"Boys Collection","sizes":["4","6","8","10"],"stock":12,"photo":"🧢"},
+    {"id":3,"name":"Pearl Accessory Set","price":24,"category":"Accessories","sizes":["One Size"],"stock":30,"photo":"🎀"},
+    {"id":4,"name":"Glow Bunny Tee","price":32,"category":"New Arrivals","sizes":["4","6","8","10"],"stock":18,"photo":"✨"}
+  ]
+}
